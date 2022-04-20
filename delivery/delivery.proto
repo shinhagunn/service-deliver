@@ -12,7 +12,7 @@ message DeliverRequest {
   string name = 1; // name of the person
   string address = 2; // address of the person
   string phone = 3; // phone number of the person
-  string price = 4; // price of the person
+  double price = 4; // price of the person
 }
 
 message DeliverResponse {

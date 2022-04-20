@@ -1,0 +1,20 @@
+syntax = "proto3";
+
+option go_package = "github.com/shinhagunn/service-deliver/delivery";
+
+package delivery;
+
+service Deliver {
+  rpc Deliver(DeliverRequest) returns (DeliverResponse) {}
+}
+
+message DeliverRequest {
+  string name = 1; // name of the person
+  string address = 2; // address of the person
+  string phone = 3; // phone number of the person
+  string price = 4; // price of the person
+}
+
+message DeliverResponse {
+  bool status = 1; // status of the delivery
+}

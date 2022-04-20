@@ -2,8 +2,11 @@ package main
 
 import (
 	"context"
+	"fmt"
 	"log"
 	"net"
+	"os"
+	"time"
 
 	pb "github.com/shinhagunn/service-deliver/delivery"
 	"google.golang.org/grpc"
@@ -19,11 +22,13 @@ type server struct {
 
 func (s *server) Deliver(ctx context.Context, in *pb.DeliverRequest) (*pb.DeliverResponse, error) {
 	log.Printf("Da nhan duoc don hang cua: %v", in.GetName())
+	time.Sleep(time.Minute)
+
 	return &pb.DeliverResponse{Status: true}, nil
 }
 
 func main() {
-	lis, err := net.Listen("tcp", ":50051")
+	lis, err := net.Listen("tcp", fmt.Sprintf(":%s", os.Getenv("GRPC_PORT")))
 
 	if err != nil {
 		panic(err)

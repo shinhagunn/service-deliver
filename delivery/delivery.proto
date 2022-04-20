@@ -9,7 +9,7 @@ service Deliver {
 }
 
 message DeliverRequest {
-  string name = 1; // name of the person
+  string order_id = 1; // name of the person
 }
 
 message DeliverResponse {
